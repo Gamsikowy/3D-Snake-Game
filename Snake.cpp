@@ -5,7 +5,6 @@ Snake::Snake() {
 	this->motion_x = 0.0;
 	this->motion_z = -10.0;
 	this->absSpeedValue = 1.0;
-	//this->speed_x = 0.0;
 	this->speed_x = -this->absSpeedValue;
 	this->speed_z = 0.0;
 	this->rotateAngle = -4.65f;
