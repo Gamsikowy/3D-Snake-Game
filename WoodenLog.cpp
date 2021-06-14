@@ -30,10 +30,6 @@ void WoodenLog::drawingManagement(glm::mat4 P, glm::mat4 V, glm::mat4 M) {
 	glBindTexture(GL_TEXTURE_2D, this->tex);
 	glUniform1i(spShader->u("tex"), 0);
 
-	//glActiveTexture(GL_TEXTURE1);
-	//glBindTexture(GL_TEXTURE_2D, this->reflection_tex);
-	//glUniform1i(spShader->u("ref_tex"), 1);
-
 	glDrawElements(GL_TRIANGLES, this->indices.size(), GL_UNSIGNED_INT, this->indices.data());
 
 	glDisableVertexAttribArray(spShader->a("vertex"));
