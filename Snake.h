@@ -19,7 +19,7 @@ public:
 	float motion_z;
 	float rotateAngle;
 	float absSpeedValue;
-	int speeding; // waz po zjedzeniu zlotego jablka przyspiesza na kilka cykli, odmierzanych ta zmienna
+	int speeding;
 	int score;
 
 	Snake();
