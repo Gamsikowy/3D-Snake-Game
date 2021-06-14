@@ -11,22 +11,19 @@ void Loader::loadModel(string file) {
 	aiMesh* mesh = scene->mMeshes[0];
 
 	for (int i = 0; i < mesh->mNumVertices; i++) {
-		aiVector3D vertex = mesh->mVertices[i];//wektor podobny do glm::vec4
+		aiVector3D vertex = mesh->mVertices[i];
 		verts.push_back(glm::vec4(vertex.x, vertex.y, vertex.z, 1));
 
-		aiVector3D normal = mesh->mNormals[i];//wektor znormalizowany
-		norms.push_back(glm::vec4(normal.x, normal.y, normal.z, 0));//0 bo to wektor (kierunek, a nie pzycja)
+		aiVector3D normal = mesh->mNormals[i];
+		norms.push_back(glm::vec4(normal.x, normal.y, normal.z, 0));
 
-		aiVector3D texCoord = mesh->mTextureCoords[0][i]; //0 to nr zestawu wspólrzêdnych teksturowania
+		aiVector3D texCoord = mesh->mTextureCoords[0][i];
 		texCoords.push_back(glm::vec2(texCoord.x, texCoord.y));
 	}
 
-	//dla ka¿dego wilokata skladowego
 	for (int i = 0; i < mesh->mNumFaces; i++) {
 		aiFace& face = mesh->mFaces[i];
 
-		//dla kazdego indeksu->wierzcholka tworzacego wielokat
-		//dla aiProcess_Triangulate to zawsze bêdie 3
 		for (int j = 0; j < face.mNumIndices; j++) {
 			indices.push_back(face.mIndices[j]);
 		}
@@ -37,12 +34,6 @@ void Loader::loadModel(string file) {
 	for (int i = 0; i < 19; i++) {
 		std::cout << i << " " << material->GetTextureCount((aiTextureType)i) << endl;
 	}
-
-	//for (int i = 0; i < material->GetTextureCount(aiTextureType_DIFFUSE); i++) {
-	//	aiString str;
-	//	material->GetTexture(aiTextureType_DIFFUSE, i, &str);
-	//	cout << str.C_Str() << endl;
-	//}
 }
 
 GLuint Loader::readTexture(const char* filename) {
@@ -58,7 +49,7 @@ GLuint Loader::readTexture(const char* filename) {
 	glTexImage2D(GL_TEXTURE_2D, 0, 4, width, height, 0,
 				 GL_RGBA, GL_UNSIGNED_BYTE, (unsigned char*)image.data());
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // wybór algorytmu próbkowania kolorów
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
 	return tex;
