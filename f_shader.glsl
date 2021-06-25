@@ -17,15 +17,13 @@ void main(void) {
 	vec4 ml = normalize(lightVector);
 	vec4 ml2 = normalize(lightVector2);
 
-	// parametry powierzchni
 	vec4 kd = texture(tex, i_tc);
 	vec4 ks = texture(tex, i_tc);
 
-	//wektor odbity wzgledem p. oka
 	vec4 mr = reflect(-ml, mn);
 	vec4 mr2 = reflect(-ml2, mn);
 
-	// obliczenie modelu oœwietlenia (model phonga)
+	// calculation of the lighting model (phong model)
 	float nl = clamp(dot(mn, ml), 0, 1);
 	float nl2 = clamp(dot(mn, ml2), 0, 1);
 
