@@ -7,9 +7,9 @@ uniform mat4 M;
 uniform vec4 lightPos = vec4(100, 0, 0, 0);
 uniform vec4 lightPos2 = vec4(-100, 0, 0, 0);
 
-in vec4 vertex; //wspolrzedne wierzcholka w przestrzeni modelu
-in vec4 normal; //wektor normalny w wierzcholku
-in vec2 texCoord; //wspó³rzêdne teksturowania
+in vec4 vertex;
+in vec4 normal;
+in vec2 texCoord;
 
 out vec2 i_tc;
 out vec4 normalVector;
