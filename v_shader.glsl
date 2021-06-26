@@ -4,8 +4,8 @@ uniform mat4 P;
 uniform mat4 V;
 uniform mat4 M;
 
-uniform vec4 lightPos = vec4(100, 0, 0, 0);
-uniform vec4 lightPos2 = vec4(-100, 0, 0, 0);
+vec4 lightPos = vec4(100, 0, 0, 0);
+vec4 lightPos2 = vec4(-100, 0, 0, 0);
 
 in vec4 vertex;
 in vec4 normal;
